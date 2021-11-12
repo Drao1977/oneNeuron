@@ -1,5 +1,5 @@
 from utils.model import Perceptron
-from utils.all_utils import prepare_data
+from utils.all_utils import prepare_data, save_plot, save_model
 import pandas as pd
 
 OR = {
@@ -17,5 +17,9 @@ EPOCHS = 10
 
 model_OR = Perceptron(eta=ETA, epochs=EPOCHS)
 model_OR.fit(X, y)
-
+print('finished saving the model')
 _ = model_OR.total_loss()
+
+
+save_model(model_OR,filename="or.model")
+save_plot(df,"or.png",model_OR)
